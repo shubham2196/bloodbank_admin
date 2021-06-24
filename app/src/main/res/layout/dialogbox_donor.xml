@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="15dp"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:id="@+id/dialog_donorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Donor Name"
+            android:textColor="#2e6090"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_map_marker"
+            android:id="@+id/iv_location"
+            />
+
+        <TextView
+            android:id="@+id/dialog_donorAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Address "
+            android:textColor="#a9a9a9"
+            android:textSize="15sp"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@id/iv_location"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_phone"
+            android:id="@+id/iv_phone"
+            />
+
+        <TextView
+            android:id="@+id/dialog_donorPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Phone "
+            android:textColor="#a9a9a9"
+            android:textSize="15sp"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@id/iv_phone" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_blue_drop"
+            android:id="@+id/iv_blood"
+            />
+
+        <TextView
+            android:id="@+id/dialog_donorBlood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Blood group "
+            android:textColor="#a9a9a9"
+            android:textSize="15sp"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@id/iv_blood" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dialog_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="CLOSE"
+            android:textColor="#2e6090"
+            android:textSize="18sp"
+            android:layout_alignParentRight="true"/>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
