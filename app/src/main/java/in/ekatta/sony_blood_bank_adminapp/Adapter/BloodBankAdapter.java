@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -77,6 +78,7 @@ public class BloodBankAdapter extends RecyclerView.Adapter<BloodBankAdapter.MyVi
                 dialog_phone = dialog.findViewById(R.id.dialog_bankPhone);
                 close = dialog.findViewById(R.id.dialog_close);
                 edit=dialog.findViewById(R.id.dialog_edit);
+                delete=dialog.findViewById(R.id.dialog_delete);
 
                 dialog_name.setText(bloodBankData.getName());
                 dialog_address.setText(bloodBankData.getArealine()+","+bloodBankData.getLandmark()+","+bloodBankData.getCity()+","+bloodBankData.getDistrict()+","+bloodBankData.getPin());
@@ -150,6 +152,25 @@ public class BloodBankAdapter extends RecyclerView.Adapter<BloodBankAdapter.MyVi
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
+                    }
+                });
+                delete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FirebaseDatabase.getInstance().getReference().child("BloodBank").child(list.get(position).getEmail().split("\\.")[0] + list.get(position).getMobile().toString()).removeValue(new DatabaseReference.CompletionListener() {
+                            @Override
+                            public void onComplete(DatabaseError error, DatabaseReference ref) {
+                                if(error == null){
+                                    Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_SHORT).show();
+                                    list.remove(position);
+                                    notifyItemRemoved(position);
+                                    notifyItemRangeChanged(position, getItemCount());
+                                    dialog.dismiss();
+                                } else {
+                                    Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
                     }
                 });
                 edit.setOnClickListener(new View.OnClickListener() {

@@ -240,24 +240,26 @@ public class LoadBloodBank extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(LoadBloodBank.this));
         list = new ArrayList<>();
         bloodBankAdapter = new BloodBankAdapter(LoadBloodBank.this, list);
-        recyclerView.setAdapter(bloodBankAdapter);
 
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("BloodBank");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    BloodBankData data = ds.getValue(BloodBankData.class);
-                    list.add(data);
+                if (list.size() == 0) {
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+                        BloodBankData data = ds.getValue(BloodBankData.class);
+                        list.add(data);
+                    }
+                    recyclerView.setAdapter(bloodBankAdapter);
                 }
-                bloodBankAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+
         });
 
         search.addTextChangedListener(new TextWatcher() {

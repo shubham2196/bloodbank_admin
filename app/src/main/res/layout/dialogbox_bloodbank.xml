@@ -112,6 +112,17 @@
 
 
         <TextView
+            android:id="@+id/dialog_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="DELETE"
+            android:textColor="#2e6090"
+            android:textSize="15sp"
+            android:layout_toLeftOf="@id/dialog_edit"/>
+
+
+        <TextView
             android:id="@+id/dialog_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
