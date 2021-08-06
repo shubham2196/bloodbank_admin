@@ -1,12 +1,8 @@
 package in.ekatta.sony_blood_bank_adminapp.Adapter;
 
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
@@ -31,11 +27,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import in.ekatta.sony_blood_bank_adminapp.Activities.ManageBloodBank_B;
+import in.ekatta.sony_blood_bank_adminapp.Activities.UpdateBloodBank;
 import in.ekatta.sony_blood_bank_adminapp.DataClasses.BloodBankData;
 import in.ekatta.sony_blood_bank_adminapp.R;
 
@@ -82,7 +77,6 @@ public class BloodBankAdapter extends RecyclerView.Adapter<BloodBankAdapter.MyVi
                 dialog_phone = dialog.findViewById(R.id.dialog_bankPhone);
                 close = dialog.findViewById(R.id.dialog_close);
                 edit=dialog.findViewById(R.id.dialog_edit);
-                delete=dialog.findViewById(R.id.dialog_delete);
 
                 dialog_name.setText(bloodBankData.getName());
                 dialog_address.setText(bloodBankData.getArealine()+","+bloodBankData.getLandmark()+","+bloodBankData.getCity()+","+bloodBankData.getDistrict()+","+bloodBankData.getPin());
@@ -161,26 +155,9 @@ public class BloodBankAdapter extends RecyclerView.Adapter<BloodBankAdapter.MyVi
                 edit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(context, ManageBloodBank_B.class);
+                        Intent intent = new Intent(context, UpdateBloodBank.class);
                         intent.putExtra("name",list.get(position).getEmail().split("\\.")[0] + list.get(position).getMobile().toString());
                         context.startActivity(intent);
-                        dialog.dismiss();
-                    }
-                });
-                delete.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        FirebaseDatabase.getInstance().getReference().child("BloodBank").child(list.get(position).getEmail().split("\\.")[0] + list.get(position).getMobile().toString()).setValue(null).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Toast.makeText(context, "Done", Toast.LENGTH_SHORT).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-                            }
-                        });
                         dialog.dismiss();
                     }
                 });

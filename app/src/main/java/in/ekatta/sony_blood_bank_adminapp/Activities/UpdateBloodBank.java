@@ -24,7 +24,7 @@ import java.util.HashMap;
 import in.ekatta.sony_blood_bank_adminapp.R;
 import in.ekatta.sony_blood_bank_adminapp.UserHolder;
 
-public class ManageBloodBank_B extends AppCompatActivity {
+public class UpdateBloodBank extends AppCompatActivity {
 
     private DatabaseReference mReff;
     private ImageView backBtn;
@@ -67,16 +67,16 @@ public class ManageBloodBank_B extends AppCompatActivity {
 
         Intent intent = getIntent();
         field = intent.getStringExtra("name");
-
+        
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ManageBloodBank_B.this,ManageBloodBank_A.class));
+                startActivity(new Intent(UpdateBloodBank.this, LoadBloodBank.class));
                 finish();
             }
         });
 
-        mReff.addChildEventListener(new ChildEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("BloodBank").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 if (snapshot.getKey().toString().equals(field)) {
@@ -162,7 +162,7 @@ public class ManageBloodBank_B extends AppCompatActivity {
                     ubbmobile.requestFocus();
                 } else if (!uOpositive.isChecked() && !uApositive.isChecked() && !uBpositive.isChecked() && !uABpositive.isChecked() && !uOnegative.isChecked() &&
                         !uAnegative.isChecked() && !uBnegative.isChecked() && !uABnegative.isChecked()) {
-                    Toast.makeText(ManageBloodBank_B.this, "Please Select At least One of Blood Group", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateBloodBank.this, "Please Select At least One of Blood Group", Toast.LENGTH_SHORT).show();
                 } else if (pin.length() != 6) {
                     ubbpin.setError("Pin is Not Valid");
                     ubbpin.requestFocus();
@@ -196,11 +196,11 @@ public class ManageBloodBank_B extends AppCompatActivity {
                         @Override
                         public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                             if (error == null) {
-                                Toast.makeText(ManageBloodBank_B.this, "Done", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UpdateBloodBank.this, "Done", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(ManageBloodBank_B.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UpdateBloodBank.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                             }
-                            startActivity(new Intent(ManageBloodBank_B.this, ManageBloodBank_A.class));
+                            startActivity(new Intent(UpdateBloodBank.this, LoadBloodBank.class));
                             finish();
                         }
                     });
@@ -211,7 +211,7 @@ public class ManageBloodBank_B extends AppCompatActivity {
         ubbcancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ManageBloodBank_B.this, ManageBloodBank_A.class));
+                startActivity(new Intent(UpdateBloodBank.this, LoadBloodBank.class));
                 finish();
             }
         });

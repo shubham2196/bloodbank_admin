@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SBBAdminApp">
 
-    <activity android:name=".Activities.ManageBloodBank_A" />
+    <activity android:name=".Activities.LoadBloodBank" />
     <activity android:name=".Activities.Profile" />
-    <activity android:name=".Activities.ManageBloodBank_B" />
-    <activity android:name=".Activities.ManageUser" />
+    <activity android:name=".Activities.UpdateBloodBank" />
+    <activity android:name=".Activities.ManageDonor" />
     <activity android:name=".Activities.AddBloodBank" />
     <activity android:name=".Activities.LoginActivity">
         <intent-filter>

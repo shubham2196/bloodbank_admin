@@ -139,25 +139,25 @@ public class Profile extends AppCompatActivity {
 
 
     public void ClickMenu(View View) {
-        ManageUser.openDrawer(drawerLayout);
+        ManageDonor.openDrawer(drawerLayout);
     }
 
     public void ClickLogo(View View) {
-        ManageUser.closeDrawer(drawerLayout);
+        ManageDonor.closeDrawer(drawerLayout);
     }
 
     public void ClickManageDonor(View View) {
-        startActivity(new Intent(this, ManageUser.class));
+        startActivity(new Intent(this, ManageDonor.class));
         finish();
     }
 
     public void ClickManageBloodBank(View view) {
-        startActivity(new Intent(this, ManageBloodBank_A.class));
+        startActivity(new Intent(this, LoadBloodBank.class));
         finish();
     }
 
     public void ClickProfile(View view) {
-        ManageUser.closeDrawer(drawerLayout);
+        ManageDonor.closeDrawer(drawerLayout);
         finish();
     }
 

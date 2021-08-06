@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                     UnameValue = username;
                     PasswordValue = password;
                     savePreferences();
-                    startActivity(new Intent(LoginActivity.this, ManageUser.class));
+                    startActivity(new Intent(LoginActivity.this, ManageDonor.class));
                     finish();
                 } else {
                     progressDialog.show();
@@ -146,7 +146,7 @@ public class LoginActivity extends AppCompatActivity {
                                     PasswordValue = password;
                                     savePreferences();
                                     progressDialog.dismiss();
-                                    startActivity(new Intent(LoginActivity.this, ManageUser.class));
+                                    startActivity(new Intent(LoginActivity.this, ManageDonor.class));
                                     finish();
                                 } else {
                                     Toast.makeText(LoginActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
@@ -215,7 +215,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (UnameValue.equals("kdtech500@gmail.com")) {
             UserHolder.getInstance().setEmail(UnameValue);
-            startActivity(new Intent(LoginActivity.this, ManageUser.class));
+            startActivity(new Intent(LoginActivity.this, ManageDonor.class));
             finish();
             return;
         }
@@ -251,7 +251,7 @@ public class LoginActivity extends AppCompatActivity {
                         UserHolder.getInstance().setPin(snapshot.child("pin").getValue().toString().trim());
 
                         progressDialog.dismiss();
-                        startActivity(new Intent(LoginActivity.this, ManageUser.class));
+                        startActivity(new Intent(LoginActivity.this, ManageDonor.class));
                         finish();
                     } else {
                     }

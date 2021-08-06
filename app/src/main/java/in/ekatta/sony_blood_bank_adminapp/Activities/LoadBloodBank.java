@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,7 +37,7 @@ import in.ekatta.sony_blood_bank_adminapp.DataClasses.BloodBankData;
 import in.ekatta.sony_blood_bank_adminapp.R;
 import in.ekatta.sony_blood_bank_adminapp.UserHolder;
 
-public class ManageBloodBank_A extends AppCompatActivity {
+public class LoadBloodBank extends AppCompatActivity {
     RecyclerView recyclerView;
     FloatingActionButton fab;
     DrawerLayout drawerLayout;
@@ -66,7 +65,7 @@ public class ManageBloodBank_A extends AppCompatActivity {
         ABN = findViewById(R.id.ABNN);
         fab = findViewById(R.id.fab);
 
-        progressDialog = new SpotsDialog(ManageBloodBank_A.this);
+        progressDialog = new SpotsDialog(LoadBloodBank.this);
 
         TextView main = findViewById(R.id.main_name);
         main.setText("Manage Blood Bank");
@@ -92,7 +91,7 @@ public class ManageBloodBank_A extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ManageBloodBank_A.this, AddBloodBank.class));
+                startActivity(new Intent(LoadBloodBank.this, AddBloodBank.class));
             }
         });
 
@@ -238,9 +237,9 @@ public class ManageBloodBank_A extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.bloodBankList);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(ManageBloodBank_A.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(LoadBloodBank.this));
         list = new ArrayList<>();
-        bloodBankAdapter = new BloodBankAdapter(ManageBloodBank_A.this, list);
+        bloodBankAdapter = new BloodBankAdapter(LoadBloodBank.this, list);
         recyclerView.setAdapter(bloodBankAdapter);
 
 
@@ -277,7 +276,7 @@ public class ManageBloodBank_A extends AppCompatActivity {
                 if (list.size() != 0) {
                     bloodBankAdapter.searchKeyword(s.toString());
                 } else {
-                    Toast.makeText(ManageBloodBank_A.this, "No Result Found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoadBloodBank.this, "No Result Found", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -393,22 +392,22 @@ public class ManageBloodBank_A extends AppCompatActivity {
 
 
     public void ClickMenu(View View) {
-        ManageUser.openDrawer(drawerLayout);
+        ManageDonor.openDrawer(drawerLayout);
     }
 
 
     public void ClickLogo(View View) {
-        ManageUser.closeDrawer(drawerLayout);
+        ManageDonor.closeDrawer(drawerLayout);
     }
 
 
     public void ClickManageDonor(View View) {
-        startActivity(new Intent(this, ManageUser.class));
+        startActivity(new Intent(this, ManageDonor.class));
         finish();
     }
 
     public void ClickManageBloodBank(View view) {
-        ManageUser.closeDrawer(drawerLayout);
+        ManageDonor.closeDrawer(drawerLayout);
     }
 
     public void ClickProfile(View view) {
@@ -427,7 +426,7 @@ public class ManageBloodBank_A extends AppCompatActivity {
                 }).setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(ManageBloodBank_A.this, LoginActivity.class);
+                        Intent intent = new Intent(LoadBloodBank.this, LoginActivity.class);
                         intent.putExtra("forceclose", "Yes");
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);

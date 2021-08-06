@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.ekatta.sony_blood_bank_adminapp.Activities.ManageBloodBank_A">
+    tools:context="in.ekatta.sony_blood_bank_adminapp.Activities.LoadBloodBank">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"

@@ -1,7 +1,5 @@
 package in.ekatta.sony_blood_bank_adminapp.DataClasses;
 
-import in.ekatta.sony_blood_bank_adminapp.Activities.ManageBloodBank_A;
-
 
 public class BloodBankData {
 

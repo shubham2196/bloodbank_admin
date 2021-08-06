@@ -14,17 +14,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.os.Bundle;
 
 import com.google.firebase.database.ChildEventListener;
@@ -41,7 +35,7 @@ import in.ekatta.sony_blood_bank_adminapp.DataClasses.DonorData;
 import in.ekatta.sony_blood_bank_adminapp.R;
 import in.ekatta.sony_blood_bank_adminapp.UserHolder;
 
-public class ManageUser extends AppCompatActivity {
+public class ManageDonor extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     RecyclerView recyclerView;
@@ -61,7 +55,7 @@ public class ManageUser extends AppCompatActivity {
         APP = findViewById(R.id.APP);
         BPP = findViewById(R.id.BPP);
         ABPP = findViewById(R.id.ABPP);
-        progressDialog = new SpotsDialog(ManageUser.this);
+        progressDialog = new SpotsDialog(ManageDonor.this);
 
         TextView main = findViewById(R.id.main_name);
         main.setText("Manage Donor");
@@ -230,9 +224,9 @@ public class ManageUser extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.donorList);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(ManageUser.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(ManageDonor.this));
         list = new ArrayList<>();
-        dataAdapter = new DonorAdapter(ManageUser.this, list);
+        dataAdapter = new DonorAdapter(ManageDonor.this, list);
         recyclerView.setAdapter(dataAdapter);
 
         search = findViewById(R.id.search_text);
@@ -364,7 +358,7 @@ public class ManageUser extends AppCompatActivity {
     }
 
     public void ClickManageBloodBank(View view) {
-        startActivity(new Intent(this, ManageBloodBank_A.class));
+        startActivity(new Intent(this, LoadBloodBank.class));
         finish();
     }
 
@@ -384,7 +378,7 @@ public class ManageUser extends AppCompatActivity {
                 }).setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(ManageUser.this, LoginActivity.class);
+                        Intent intent = new Intent(ManageDonor.this, LoginActivity.class);
                         intent.putExtra("forceclose","Yes");
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);

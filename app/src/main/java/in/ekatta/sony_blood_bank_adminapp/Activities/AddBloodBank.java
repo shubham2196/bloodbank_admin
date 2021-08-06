@@ -64,14 +64,13 @@ public class AddBloodBank extends AppCompatActivity {
         bbcancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddBloodBank.this, ManageUser.class));
+                finish();
             }
         });
 
         abackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AddBloodBank.this,ManageBloodBank_A.class));
                 finish();
             }
         });
@@ -158,7 +157,7 @@ public class AddBloodBank extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(AddBloodBank.this, "Done", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(AddBloodBank.this, ManageBloodBank_A.class));
+                            startActivity(new Intent(AddBloodBank.this, LoadBloodBank.class));
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

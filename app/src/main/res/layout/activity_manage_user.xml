@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.ekatta.sony_blood_bank_adminapp.Activities.ManageUser">
+    tools:context="in.ekatta.sony_blood_bank_adminapp.Activities.ManageDonor">
 
     <LinearLayout
         android:layout_width="match_parent"
