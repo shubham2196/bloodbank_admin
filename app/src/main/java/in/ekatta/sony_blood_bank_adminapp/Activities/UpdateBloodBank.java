@@ -63,6 +63,7 @@ public class UpdateBloodBank extends AppCompatActivity {
         ubbcancelBtn = findViewById(R.id.ubbcancelBtn);
         backBtn = findViewById(R.id.backBtn);
 
+
         mReff = FirebaseDatabase.getInstance().getReference().child("BloodBank");
 
         Intent intent = getIntent();
@@ -89,6 +90,7 @@ public class UpdateBloodBank extends AppCompatActivity {
                     ubblandmark.setText(snapshot.child("landmark").getValue().toString());
                     ubbarealine.setText(snapshot.child("arealine").getValue().toString());
                     ubbpin.setText(snapshot.child("pin").getValue().toString());
+                    pass = snapshot.child("pass").getValue().toString();
 
                     uOpositive.setChecked((Boolean) snapshot.child("O+").getValue());
                     uApositive.setChecked((Boolean) snapshot.child("A+").getValue());
@@ -137,7 +139,7 @@ public class UpdateBloodBank extends AppCompatActivity {
                 pin = ubbpin.getText().toString().trim();
                 mobile = ubbmobile.getText().toString().trim();
                 email = ubbemail.getText().toString().trim();
-                pass = UserHolder.getInstance().getPass();
+                Toast.makeText(UpdateBloodBank.this, pass, Toast.LENGTH_SHORT).show();
 
                 if (name.isEmpty()) {
                     ubbname.setError("Name is Empty");

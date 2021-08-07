@@ -9,6 +9,7 @@
     tools:context=".Activities.LoginActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/main"
         style="@style/Base.CardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -97,14 +98,24 @@
                 android:layout_marginRight="25dp"
                 android:src="@drawable/ic_eye" />
 
+            <TextView
+                android:id="@+id/resetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="36dp"
+                android:text="Forgot Password"
+                android:textColor="@color/blood_red"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/loginBtn"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:layout_marginTop="35dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginTop="-65dp"
+                android:layout_marginRight="30dp"
                 android:backgroundTint="#bb0a1e"
                 android:text="Login"
                 android:textColor="@color/white" />
