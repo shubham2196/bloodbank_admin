@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "792379918931",
+    "firebase_url": "https://sony-blood-bank-default-rtdb.firebaseio.com",
+    "project_id": "sony-blood-bank",
+    "storage_bucket": "sony-blood-bank.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792379918931:android:0fb1418e8daa7b3fd694a6",
+        "android_client_info": {
+          "package_name": "com.example.bloodbank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "792379918931-e9q9pcak00frn65i2ii5vd9b97mda74a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bloodbank",
+            "certificate_hash": "3a6eb2ef6289d7b8d5b90dbf9857b71031c26709"
+          }
+        },
+        {
+          "client_id": "792379918931-k5dae5u623d7c7aa50jks2qp4c7ragok.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bloodbank",
+            "certificate_hash": "7a8b54d1775132dc5cfbc3fc31d7dea889562a73"
+          }
+        },
+        {
+          "client_id": "792379918931-c04njnh9fohqlvg6u9kgf9cb919l2ck4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB76QU91q8BpW_8i6jtdiosWe7mIqxYum8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792379918931-c04njnh9fohqlvg6u9kgf9cb919l2ck4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792379918931:android:b2ac11ffe8fb6866d694a6",
+        "android_client_info": {
+          "package_name": "in.ekatta.sony_blood_bank_adminapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "792379918931-vf9gcnk2dqjt9q7jl42drucvldlslnni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.ekatta.sony_blood_bank_adminapp",
+            "certificate_hash": "3a6eb2ef6289d7b8d5b90dbf9857b71031c26709"
+          }
+        },
+        {
+          "client_id": "792379918931-c04njnh9fohqlvg6u9kgf9cb919l2ck4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB76QU91q8BpW_8i6jtdiosWe7mIqxYum8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792379918931-c04njnh9fohqlvg6u9kgf9cb919l2ck4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
